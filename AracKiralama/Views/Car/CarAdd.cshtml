@@ -1,0 +1,11 @@
+﻿@model AracKiralama.Models.Entities.Car
+@{
+    ViewData["Title"] = "CarAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form method="post">
+    <input name="ModelId" type="text" />
+    <input name="BrandId" type="text" />
+    <input name="Price" type="text" />
+    <input type="submit" value="Ekle" />
+</form>

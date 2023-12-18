@@ -1,0 +1,47 @@
+﻿@using AracKiralama.Models.Entities
+@model IEnumerable<Car>
+@{
+    ViewData["Title"] = "CarList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Price</th>
+            <th>Model ID</th>
+            <th>Model Name</th>
+            <th>Brand ID</th>
+            <th>Brand Name</th>
+            <th>Create Date</th>
+            <th>Status</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Price</td>
+                <td>@item.ModelId</td>
+                <td>@item.Model.Name</td>
+                <td>@item.BrandId</td>
+                <td>@item.Brand.Name</td>
+                <td>@item.CreateDate.ToLocalTime()</td>
+                <td>@item.Statu</td>
+                <td>
+                    <a href="/Car/CarDelete/@item.Id/" class="btn btn-danger">Sil</a>
+                </td>
+                <td>
+                    <a href="/Car/EditCar/@item.Id/" class="btn btn-primary">Güncelle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<center>
+    <a class="btn btn-success" href="/Car/CarAdd/">Ekle</a>
+</center>
