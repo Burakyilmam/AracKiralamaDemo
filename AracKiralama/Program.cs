@@ -17,8 +17,9 @@ namespace AracKiralama
             builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
             builder.Services.AddDbContext<Context>(options =>
               options.UseNpgsql(builder.Configuration.GetConnectionString("ConnectionString")));
-            builder.Services.AddScoped<ICarDal, CarRepository>();
-            builder.Services.AddScoped<ICarService, CarManager>();
+            builder.Services.AddScoped<ICarDal, CarRepository>();  // N Tier için
+            builder.Services.AddScoped<ICarService, CarManager>(); //
+            //builder.Services.AddScoped<ICarDal, CarRepository>(); -> Repository Pattern için
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

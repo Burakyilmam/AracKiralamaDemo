@@ -7,6 +7,5 @@
         public void Update(T t);
         public T Get(int id);
         public List<T> List();
-
     }
 }
